@@ -85,10 +85,13 @@ const Register = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
+            <button
+              onClick={handleGoogleSignIn}
+              className="btn btn-success form-control mt-6"
+            >
+              Google
+            </button>
           </form>
-          <button onClick={handleGoogleSignIn} className="btn btn-success">
-            Google
-          </button>
         </div>
       </div>
     </div>
