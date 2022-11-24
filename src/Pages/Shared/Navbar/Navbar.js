@@ -4,8 +4,15 @@ import logo from "../../../assets/img/logo.jpg";
 import { AuthContext } from "../../../Contexts/UserContext";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   console.log("context", user);
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div>
       <div className="navbar bg-primary">
@@ -68,6 +75,21 @@ const Navbar = () => {
             <li>
               <Link to="/register">Register</Link>
             </li>
+            <li>{user?.email && <span>{user?.email}</span>}</li>
+            {user?.email ? (
+              <button
+                onClick={handleSignOut}
+                className="btn btn-outline btn-warning"
+              >
+                LogOut
+              </button>
+            ) : (
+              <button className="btn btn-outline">
+                <Link className="py-4" to="/login">
+                  Login
+                </Link>
+              </button>
+            )}
           </ul>
         </div>
       </div>
