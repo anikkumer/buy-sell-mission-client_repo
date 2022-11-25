@@ -3,8 +3,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/UserContext";
 import app from "../../firebase/firebase.confiq";
+import UseTitle from "../../Hooks/UseTitle";
 
 const Register = () => {
+  UseTitle("Register");
   const { createUser, signInWithGoogle, signInWithGithub } =
     useContext(AuthContext);
   console.log("createUser", createUser);
