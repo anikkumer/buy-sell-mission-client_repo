@@ -1,9 +1,12 @@
+import { getAuth } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/UserContext";
+import app from "../../firebase/firebase.confiq";
 
 const Register = () => {
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
   console.log("createUser", createUser);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +34,19 @@ const Register = () => {
         console.log(user);
       })
       .catch((error) => console.error(error));
+  };
+
+  const auth = getAuth(app);
+
+  const handleGithubSignIn = () => {
+    signInWithGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error("error:", error);
+      });
   };
 
   return (
@@ -90,6 +106,12 @@ const Register = () => {
               className="btn btn-success form-control mt-6"
             >
               Google
+            </button>
+            <button
+              onClick={handleGithubSignIn}
+              className="btn btn-success form-control mt-6"
+            >
+              Github
             </button>
           </form>
         </div>
