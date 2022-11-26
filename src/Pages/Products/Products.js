@@ -6,7 +6,7 @@ const Products = () => {
   const { name } = useLoaderData();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/models?brand=${name}`)
+    fetch(`https://buy-sell-mission-server.vercel.app/models?brand=${name}`)
       .then((res) => res.json())
       .then((data) => setmodelList(data));
   }, [name]);

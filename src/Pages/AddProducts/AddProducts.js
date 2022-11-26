@@ -10,7 +10,9 @@ const AddProducts = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: () =>
-      fetch("http://localhost:5000/categories").then((res) => res.json()),
+      fetch("https://buy-sell-mission-server.vercel.app/categories").then(
+        (res) => res.json()
+      ),
   });
   const handleCollection = (event) => {
     event.preventDefault();
@@ -44,7 +46,7 @@ const AddProducts = () => {
       about,
     };
 
-    fetch("http://localhost:5000/models", {
+    fetch("https://buy-sell-mission-server.vercel.app/models", {
       method: "POST",
       headers: {
         "content-type": "application/json",

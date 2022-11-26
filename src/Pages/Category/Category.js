@@ -7,7 +7,9 @@ const Category = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: () =>
-      fetch("http://localhost:5000/categories").then((res) => res.json()),
+      fetch("https://buy-sell-mission-server.vercel.app/categories").then(
+        (res) => res.json()
+      ),
   });
   UseTitle("Category");
   return (
