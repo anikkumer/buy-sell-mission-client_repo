@@ -58,8 +58,12 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <Link to="/register" className="label-text-alt link link-hover">
-                  Forgot password?
+                <p>Forgot password?</p>
+                <Link
+                  to="/register"
+                  className="label-text-alt link link-hover text-xl text-blue-600"
+                >
+                  Register
                 </Link>
               </label>
             </div>

@@ -47,24 +47,36 @@ const Navbar = () => {
               <li>
                 <Link to="/blog">Blog</Link>
               </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
+              <li>{user?.email && <span>{user?.email}</span>}</li>
+              {user?.email ? (
+                <button
+                  onClick={handleSignOut}
+                  className="btn btn-outline btn-warning"
+                >
+                  LogOut
+                </button>
+              ) : (
+                <button className="btn btn-outline">
+                  <Link className="py-4" to="/login">
+                    Login
+                  </Link>
+                </button>
+              )}
             </ul>
           </div>
           <div className="flex">
             <Link to="/">
               <img className="w-12 h-12" src={logo} alt="" />
             </Link>
-            <Link to="/" className="btn btn-ghost normal-case text-xl">
+            <Link
+              to="/"
+              className="btn btn-ghost normal-case text-xl text-white"
+            >
               Buy&Sell Mission
             </Link>
           </div>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex text-white">
           <ul className="menu menu-horizontal p-0">
             <li>
               <Link to="/">Home</Link>
@@ -74,12 +86,6 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/blog">Blog</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
             </li>
             <li>{user?.email && <span>{user?.email}</span>}</li>
             {user?.email ? (

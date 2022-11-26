@@ -95,8 +95,12 @@ const Register = () => {
                 required
               />
               <label className="label">
-                <Link to="/login" className="label-text-alt link link-hover">
-                  Already have an account?
+                <p>Already have an account?</p>
+                <Link
+                  to="/login"
+                  className="label-text-alt link link-hover text-xl text-blue-600"
+                >
+                  Login
                 </Link>
               </label>
             </div>

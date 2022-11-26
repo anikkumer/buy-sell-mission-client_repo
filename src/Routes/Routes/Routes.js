@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddProducts from "../../Pages/AddProducts/AddProducts";
 import Blog from "../../Pages/Blog/Blog";
 import Category from "../../Pages/Category/Category";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
+import Products from "../../Pages/Products/Products";
 import Register from "../../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -19,9 +21,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/category",
+        element: <Category></Category>,
+      },
+      {
+        path: "/catetory/:id",
         element: (
           <PrivateRoute>
-            <Category></Category>
+            <Products></Products>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/modelsCollection",
+        element: (
+          <PrivateRoute>
+            <AddProducts></AddProducts>
           </PrivateRoute>
         ),
       },
