@@ -77,7 +77,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex text-white">
-          <ul className="menu menu-horizontal p-0">
+          <ul className="menu menu-horizontal items-center p-0">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -87,7 +87,27 @@ const Navbar = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            <li>{user?.email && <span>{user?.email}</span>}</li>
+            <Link className="hidden lg:block mr-12">
+              <div className="dropdown dropdown-hover">
+                <label tabIndex={0} className="">
+                  {user?.email}
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  {user?.uid ? (
+                    <>
+                      <li className="text-black">
+                        <Link to="/modelsCollection">Add Models</Link>
+                      </li>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </ul>
+              </div>
+            </Link>
             {user?.email ? (
               <button
                 onClick={handleSignOut}
