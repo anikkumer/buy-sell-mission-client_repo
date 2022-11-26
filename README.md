@@ -12,6 +12,6 @@ ROUTER SETUP
 
 1. install react-router-dom
 
-LIVE WEBSITE LINK:
+LIVE WEBSITE LINK: https://buy-sell-mission.web.app
 
-VERCEL LINK:
+VERCEL LINK: https://buy-sell-mission-server.vercel.app

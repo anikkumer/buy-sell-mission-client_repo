@@ -17,7 +17,7 @@ const Category = () => {
       {categories.map((cate) => (
         <div className="card card-compact bg-base-100 shadow-xl" key={cate._id}>
           <Link to={`/category/${cate._id}`}>
-            <div className="card-body text-blue-500">
+            <div className="card-body text-xl text-blue-500">
               <h2 className="text-center m-auto">{cate.name}</h2>
             </div>
           </Link>
